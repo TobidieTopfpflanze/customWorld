@@ -24,7 +24,6 @@ class customWorld {
                 .getGeneratorManager();
 
             generatorManager.generators.set(generator.getId(), generator);
-            console.log(generatorManager);
 
             this.api
                 .getLogger()

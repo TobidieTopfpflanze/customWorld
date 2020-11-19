@@ -53,7 +53,7 @@ module.exports = class CustomFlat extends Generator {
                                   layer.block.meta || 0
                               );
 
-                    const limit = y + layer.count < 256 ? y + layer.count : 255;
+                    const limit = y + layer.count < 256 ? y + layer.count : 256;
                     for (; y < limit; y++) {
                         chunk.setBlock(x, y, z, block);
                     }
