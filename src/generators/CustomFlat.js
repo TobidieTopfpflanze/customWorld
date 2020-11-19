@@ -37,7 +37,7 @@ module.exports = class CustomFlat extends Generator {
             .getServer()
             .getWorldManager()
             .getGeneratorManager()
-            .getChunkClass().default;
+            .getChunkClass();
 
         const chunk = new Chunk(pos.getX(), pos.getZ());
 
@@ -65,4 +65,3 @@ module.exports = class CustomFlat extends Generator {
         return chunk;
     }
 };
-

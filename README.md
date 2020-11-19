@@ -10,6 +10,10 @@ worlds:
     seed: 1234
 ```
 
+## Todo
+
+-   [] Multiworld support
+
 ## Available generators
 
 | name         | description                                      |
@@ -42,16 +46,20 @@ Config example:
 
 ### Todo:
 
--   [] Multiworld support
 -   [] Biomes
 -   [] Structures?
--   [] Testing
+-   [x] Testing
 
 <br />
 
 ## Empty World
 
 just an empty world... Nothing special about it...
+
+### Todo:
+
+-   [] Biomes
+-   [] Testing
 
 ## Debug
 

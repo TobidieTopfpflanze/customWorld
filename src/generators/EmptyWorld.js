@@ -14,7 +14,7 @@ module.exports = class CustomFlat extends Generator {
             .getServer()
             .getWorldManager()
             .getGeneratorManager()
-            .getChunkClass().default;
+            .getChunkClass();
 
         const block = this.api
             .getServer()
