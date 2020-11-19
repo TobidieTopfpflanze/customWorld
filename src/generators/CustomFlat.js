@@ -41,25 +41,28 @@ module.exports = class CustomFlat extends Generator {
 
         const chunk = new Chunk(pos.getX(), pos.getZ());
 
-        for (let x = 0; x < 16; x++) {
-            for (let z = 0; z < 16; z++) {
-                this.getConfig().layers.forEach((layer) => {
-                    const block =
-                        typeof layer.block === 'string'
-                            ? BlockManager.getBlock(layer.block)
-                            : BlockManager.getBlockByIdAndMeta(
-                                  layer.block.id,
-                                  layer.block.meta || 0
-                              );
+        let y = 0;
+        this.getConfig().layers.forEach((layer) => {
+            const block =
+                typeof layer.block === 'string'
+                    ? BlockManager.getBlock(layer.block)
+                    : BlockManager.getBlockByIdAndMeta(
+                          layer.block.id,
+                          layer.block.meta || 0
+                      );
 
-                    let y = 0;
-                    const limit = y + layer.count < 256 ? y + layer.count : 256;
-                    for (; y < limit; y++) {
+            const limit = y + layer.count < 256 ? y + layer.count : 256;
+
+            for (; y < limit; y++) {
+                for (let x = 0; x < 16; x++) {
+                    for (let z = 0; z < 16; z++) {
                         chunk.setBlock(x, y, z, block);
                     }
-                });
+                }
             }
-        }
+        });
+
         return chunk;
     }
 };
+
