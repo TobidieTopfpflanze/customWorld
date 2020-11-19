@@ -3,7 +3,7 @@
 This plugins adds a few new generators for testing and fun.
 You have to change the generator in your server config file to use them
 
-```toml
+```
 worlds:
   world:
     generator: CustomFlat
@@ -36,7 +36,7 @@ Config example:
             { "count": 3, "block": { "id": 2 } },
             { "count": 1, "block": "minecraft:grass" }
         ]
-    };
+    }
 }
 ```
 
