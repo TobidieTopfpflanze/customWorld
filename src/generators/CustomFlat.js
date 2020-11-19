@@ -43,7 +43,6 @@ module.exports = class CustomFlat extends Generator {
 
         for (let x = 0; x < 16; x++) {
             for (let z = 0; z < 16; z++) {
-                let y = 0;
                 this.getConfig().layers.forEach((layer) => {
                     const block =
                         typeof layer.block === 'string'
@@ -53,6 +52,7 @@ module.exports = class CustomFlat extends Generator {
                                   layer.block.meta || 0
                               );
 
+                    let y = 0;
                     const limit = y + layer.count < 256 ? y + layer.count : 256;
                     for (; y < limit; y++) {
                         chunk.setBlock(x, y, z, block);

@@ -1,6 +1,6 @@
 {
     "name": "customworld",
-    "version": "0.0.4",
+    "version": "0.0.2",
     "description": "This plugins adds a few new generators for testing and fun",
     "main": "index.js",
     "scripts": {
@@ -14,7 +14,6 @@
     "author": "Tobi die Topfpflanze",
     "license": "MIT",
     "dependencies": {
-        "common-tags": "^1.8.0",
         "fs": "0.0.1-security",
         "path": "^0.12.7"
     },
