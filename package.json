@@ -1,6 +1,6 @@
 {
     "name": "customworld",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "This plugins adds a few new generators for testing and fun",
     "main": "index.js",
     "scripts": {

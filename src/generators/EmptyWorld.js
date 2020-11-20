@@ -10,16 +10,12 @@ module.exports = class CustomFlat extends Generator {
     }
 
     getChunk({ pos, seed, server }) {
-        const Chunk = this.api
-            .getServer()
+        const Chunk = server
             .getWorldManager()
             .getGeneratorManager()
             .getChunkClass();
 
-        const block = this.api
-            .getServer()
-            .getBlockManager()
-            .getBlock('minecraft:bedrock');
+        const block = server.getBlockManager().getBlock('minecraft:bedrock');
 
         const chunk = new Chunk(pos.getX(), pos.getZ());
 

@@ -3,24 +3,27 @@
 This plugins adds a few new generators for testing and fun.
 You have to change the generator in your server config file to use them
 
+## Todo
+
+-   [] Biomes
+-   [] Multiworld support
+
+## Available generators
+
+| name         | description                               |
+| ------------ | ----------------------------------------- |
+| `Debug`      | Places all registered blocks in the world |
+| `CustomFlat` | Customizeable flatworld generator         |
+| `EmptyWorld` | Nothing..., just air                      |
+
+In your config:
+
 ```
 worlds:
   world:
     generator: CustomFlat
     seed: 1234
 ```
-
-## Todo
-
--   [] Multiworld support
-
-## Available generators
-
-| name         | description                                      |
-| ------------ | ------------------------------------------------ |
-| `Debug`      | Places all registered blocks in the world (TODO) |
-| `CustomFlat` | Customizeable flatworld generator                |
-| `EmptyWorld` | Customizeable flatworld generator                |
 
 <br />
 
@@ -46,7 +49,6 @@ Config example:
 
 ### Todo:
 
--   [] Biomes
 -   [] Structures?
 -   [x] Testing
 
@@ -58,7 +60,6 @@ just an empty world... Nothing special about it...
 
 ### Todo:
 
--   [] Biomes
 -   [] Testing
 
 ## Debug
@@ -67,4 +68,5 @@ This should help developer to test a new features quicker
 
 ### Todo:
 
--   [] start working on it
+-   [x] start working on it
+-   [] Testing
