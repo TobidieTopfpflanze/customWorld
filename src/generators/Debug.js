@@ -1,6 +1,8 @@
 const Generator = require('../base/BaseGenerator');
 
-module.exports = class CustomFlat extends Generator {
+module.exports = class Debug extends (
+    Generator
+) {
     constructor(api, config) {
         super({
             api,
@@ -14,6 +16,13 @@ module.exports = class CustomFlat extends Generator {
             chunkWidth: 5,
             blockHeight: 5
         };
+
+        this.index = 0;
+        this.blocks = this.api
+            .getServer()
+            .getBlockManager()
+            .getBlocks()
+            .sort((a, b) => a.getId() - b.getId());
     }
 
     getChunk({ pos, seed, server }) {
@@ -23,20 +32,28 @@ module.exports = class CustomFlat extends Generator {
             .getChunkClass();
 
         const chunk = new Chunk(pos.getX(), pos.getZ());
-        const blocks = server.getBlockManager().getBlocks();
-        if (chunk.getX() > this.getConfig().chunkWidth) return chunk;
+        if (
+            chunk.getZ() > this.getConfig().chunkWidth - 1 ||
+            chunk.getZ() < 0 ||
+            chunk.getX() < 0
+        )
+            return chunk;
 
         for (let x = 0; x < 16; x = x + 2) {
             for (let z = 0; z < 16; z = z + 2) {
-                if (blocks[pos.getZ() * 16 + z]) {
-                    chunk.setBlock(
-                        x,
-                        this.getConfig().blockHeight,
-                        z,
-                        blocks[pos.getZ() * 16 + z]
-                    );
-                } else {
-                    return chunk;
+                if (chunk.getX() === 0) {
+                    let id =
+                        Math.floor(z / 2) +
+                        chunk.getZ() * 8 +
+                        4 * this.getConfig().chunkWidth * x;
+                    if (this.blocks[id]) {
+                        chunk.setBlock(
+                            x,
+                            this.getConfig().blockHeight,
+                            z,
+                            this.blocks[id]
+                        );
+                    }
                 }
             }
         }
