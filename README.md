@@ -47,11 +47,6 @@ Config example:
 }
 ```
 
-### Todo:
-
--   [] Structures?
--   [x] Testing
-
 <br />
 
 ## Empty World
@@ -65,8 +60,3 @@ just an empty world... Nothing special about it...
 ## Debug
 
 This should help developer to test a new features quicker
-
-### Todo:
-
--   [x] start working on it
--   [] Testing
