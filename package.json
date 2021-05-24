@@ -2,9 +2,10 @@
     "name": "customworld",
     "version": "0.0.5",
     "description": "This plugins adds a few new generators for testing and fun",
-    "main": "index.js",
+    "main": "./src/index.js",
     "scripts": {
         "archive": "rimraf *.jspz && npm-pack-zip",
+        "build": "tsc --build",
         "postarchive": "renamer --find zip --replace jspz *"
     },
     "prismarine": {
@@ -14,7 +15,7 @@
     "author": "Tobi die Topfpflanze",
     "license": "MIT",
     "dependencies": {
-        "fs": "0.0.1-security",
+        "fs": "^0.0.1-security",
         "path": "^0.12.7"
     },
     "devDependencies": {

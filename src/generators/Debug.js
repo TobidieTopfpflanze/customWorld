@@ -1,8 +1,9 @@
-const Generator = require('../base/BaseGenerator');
+const Generator = require('../core/Generator');
+const {
+    default: Chunk
+} = require('@jsprismarine/prismarine/dist/src/world/chunk/Chunk');
 
-module.exports = class Debug extends (
-    Generator
-) {
+class Debug extends Generator {
     constructor(api, config) {
         super({
             api,
@@ -26,11 +27,6 @@ module.exports = class Debug extends (
     }
 
     getChunk({ pos, seed, server }) {
-        const Chunk = server
-            .getWorldManager()
-            .getGeneratorManager()
-            .getChunkClass();
-
         const chunk = new Chunk(pos.getX(), pos.getZ());
         if (
             chunk.getZ() > this.getConfig().chunkWidth - 1 ||
@@ -60,4 +56,6 @@ module.exports = class Debug extends (
 
         return chunk;
     }
-};
+}
+
+module.exports = Debug;

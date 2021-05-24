@@ -1,4 +1,4 @@
-module.exports = class Generator {
+class Generator {
     constructor({ api, config, id, defaultOptions = {} }) {
         this.api = api;
         this.id = id;
@@ -17,4 +17,6 @@ module.exports = class Generator {
     getDefaultOptions() {
         return this.defaultOptions;
     }
-};
+}
+
+module.exports = Generator;

@@ -1,7 +1,12 @@
 /* eslint-disable indent */
-const Generator = require('../base/BaseGenerator');
+const Generator = require('../core/Generator');
+const {
+    default: Chunk
+} = require('@jsprismarine/prismarine/dist/src/world/chunk/Chunk');
 
-module.exports = class CustomFlat extends Generator {
+console.log(new Chunk());
+
+class CustomFlat extends Generator {
     constructor(api, config) {
         super({
             api,
@@ -33,11 +38,6 @@ module.exports = class CustomFlat extends Generator {
 
     getChunk({ pos, seed, server }) {
         const BlockManager = server.getBlockManager();
-        const Chunk = server
-            .getWorldManager()
-            .getGeneratorManager()
-            .getChunkClass();
-
         const chunk = new Chunk(pos.getX(), pos.getZ());
 
         let y = 0;
@@ -63,4 +63,6 @@ module.exports = class CustomFlat extends Generator {
 
         return chunk;
     }
-};
+}
+
+module.exports = CustomFlat;

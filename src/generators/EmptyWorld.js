@@ -1,6 +1,9 @@
-const Generator = require('../base/BaseGenerator');
+const Generator = require('../core/Generator');
+const {
+    default: Chunk
+} = require('@jsprismarine/prismarine/dist/src/world/chunk/Chunk');
 
-module.exports = class CustomFlat extends Generator {
+class EmptyWorld extends Generator {
     constructor(api, config) {
         super({
             api,
@@ -10,11 +13,6 @@ module.exports = class CustomFlat extends Generator {
     }
 
     getChunk({ pos, seed, server }) {
-        const Chunk = server
-            .getWorldManager()
-            .getGeneratorManager()
-            .getChunkClass();
-
         const block = server.getBlockManager().getBlock('minecraft:bedrock');
 
         const chunk = new Chunk(pos.getX(), pos.getZ());
@@ -23,4 +21,6 @@ module.exports = class CustomFlat extends Generator {
 
         return;
     }
-};
+}
+
+module.exports = EmptyWorld;
